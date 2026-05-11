@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Caderno TGNR · D1 · Bloco 1</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#F5F0E8;--bg2:#FAF7F2;--bg3:#EFEBE3;--text:#594F43;--text2:#73685A;--text3:#8C8174;--text4:#A89E93;--accent:#E07A3A;--accent-light:#F0A06A;--accent-bg:#FDF0E6;--accent-border:#F5C9A3;--border:#DDD6CA;--border2:#E8E2D8;--green:#5A8F5C;--green-bg:#EEF5EE;--green-border:#C5DABE;--pink:#B35A75;--pink-bg:#F7EDF0;--pink-border:#E0BDC7;--blue:#4A7BA5;--blue-bg:#EBF2F8;--blue-border:#B5CEDF;--amber:#B38320;--amber-bg:#FBF5E6;--amber-border:#E8D5A0;--purple:#7B5EA7;--purple-bg:#F2EDF8;--purple-border:#C9B8DD;--red:#C4533B;--red-bg:#FAF0ED;--red-border:#E4BAB0;--shadow:0 1px 3px rgba(89,79,67,.08);--shadow2:0 2px 8px rgba(89,79,67,.08);--table-head-bg:#EBE5DC;--table-head-color:#594F43;--table-head-border:#DDD6CA;--table-hover:#F0EBE3;--blockquote-bg:#FAF7F2;--blockquote-border:#E07A3A;--code-bg:#FAF7F2;--accordion-bg:#F0EBE3;--accordion-open-bg:#FAF7F2}
+[data-theme="dark"]{--bg:#2C2824;--bg2:#363230;--bg3:#3D3834;--text:#E8E0D4;--text2:#C9C0B4;--text3:#A39A8E;--text4:#7D7568;--accent:#F0924A;--accent-light:#F5A86E;--accent-bg:#3D2F24;--accent-border:#6B4A30;--border:#4A443E;--border2:#3D3834;--green:#7ABF7C;--green-bg:#2A3329;--green-border:#3A4A37;--pink:#E08A9F;--pink-bg:#3A2830;--pink-border:#5A3844;--blue:#7EB0D6;--blue-bg:#242F3A;--blue-border:#344A5C;--amber:#E0B040;--amber-bg:#3A3020;--amber-border:#5A4A2A;--purple:#A88ED0;--purple-bg:#302840;--purple-border:#4A3A5C;--red:#E07060;--red-bg:#3A2824;--red-border:#5A3830;--shadow:0 1px 3px rgba(0,0,0,.2);--shadow2:0 2px 8px rgba(0,0,0,.25);--table-head-bg:#3D3834;--table-head-color:#E8E0D4;--table-head-border:#4A443E;--table-hover:#3D3834;--blockquote-bg:#363230;--blockquote-border:#F0924A;--code-bg:#363230;--accordion-bg:#363230;--accordion-open-bg:#3D3834}
+body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;padding:32px 20px 60px;line-height:1.75;transition:background .3s,color .3s}
+.mx{max-width:740px;margin:0 auto}
+.theme-toggle{position:fixed;top:16px;right:16px;z-index:100;display:flex;align-items:center;gap:8px;background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:6px 14px;cursor:pointer;user-select:none;font-size:11px;font-weight:500;color:var(--text3);letter-spacing:.5px;box-shadow:var(--shadow);transition:all .3s}
+.theme-toggle:hover{border-color:var(--accent)}
+.hdr{text-align:center;padding:0 0 32px;border-bottom:1px solid var(--border);margin-bottom:36px}
+.hdr h1{font-size:12px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
+.hdr h2{font-size:22px;font-weight:300;letter-spacing:1px;color:var(--text)}
+.hdr .sub{font-size:10px;color:var(--text4);margin-top:8px;letter-spacing:1px}
+.hdr .shield{font-size:14px;margin-top:6px}
+h3{font-size:18px;font-weight:600;color:var(--text);margin:40px 0 18px;padding-bottom:10px;border-bottom:1px solid var(--border);letter-spacing:.5px}
+h4{font-size:15px;font-weight:600;color:var(--text2);margin:28px 0 14px;letter-spacing:.3px}
+p{font-size:15px;color:var(--text2);margin-bottom:16px;line-height:1.85}
+strong{color:var(--text);font-weight:600}
+em{color:var(--text3);font-style:italic}
+.card{border-radius:12px;padding:18px 20px;margin:18px 0;background:var(--bg2);border:1px solid var(--border);box-shadow:var(--shadow);transition:all .3s}
+.card-green{background:var(--green-bg);border-color:var(--green-border)}
+.card-pink{background:var(--pink-bg);border-color:var(--pink-border)}
+.card-blue{background:var(--blue-bg);border-color:var(--blue-border)}
+.card-amber{background:var(--amber-bg);border-color:var(--amber-border)}
+.card-purple{background:var(--purple-bg);border-color:var(--purple-border)}
+.card-accent{background:var(--accent-bg);border-color:var(--accent-border)}
+.card-label{font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px}
+.card-label-green{color:var(--green)}.card-label-pink{color:var(--pink)}.card-label-blue{color:var(--blue)}.card-label-amber{color:var(--amber)}.card-label-purple{color:var(--purple)}.card-label-accent{color:var(--accent)}
+.card p{margin-bottom:8px;color:var(--text2)}.card p:last-child{margin-bottom:0}
+table{width:100%;border-collapse:collapse;margin:18px 0;font-size:13px}
+thead th{background:var(--table-head-bg);color:var(--table-head-color);font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:10px 14px;text-align:left;border-bottom:2px solid var(--table-head-border)}
+tbody td{padding:10px 14px;border-bottom:1px solid var(--border2);color:var(--text2)}
+tbody tr:hover{background:var(--table-hover)}
+pre{background:var(--code-bg);border:1px solid var(--border);border-radius:8px;padding:16px;font-family:'DM Mono',monospace;font-size:12px;color:var(--text2);overflow-x:auto;margin:16px 0;line-height:1.8;box-shadow:var(--shadow)}
+blockquote{border-left:3px solid var(--blockquote-border);padding:14px 18px;margin:16px 0;background:var(--blockquote-bg);border-radius:0 8px 8px 0}
+blockquote p{font-family:'DM Mono',monospace;font-size:12.5px;color:var(--text2);line-height:1.9;margin-bottom:10px}
+blockquote p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:9px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:3px 8px;border-radius:4px;margin-left:8px;vertical-align:middle}
+.tag-altissima{color:var(--red);background:var(--red-bg);border:1px solid var(--red-border)}
+.tag-alta{color:var(--pink);background:var(--pink-bg);border:1px solid var(--pink-border)}
+.tag-media{color:var(--amber);background:var(--amber-bg);border:1px solid var(--amber-border)}
+.tag-baixa{color:var(--text4);background:var(--bg3);border:1px solid var(--border)}
+.selo{font-size:14px;margin-right:4px}
+.elem-tag{display:inline-block;font-family:'DM Mono',monospace;font-size:9px;font-weight:500;letter-spacing:.5px;padding:2px 5px;border-radius:3px;color:var(--text4);background:var(--bg3);border:1px solid var(--border);margin-right:6px;vertical-align:middle;opacity:.7}
+details.c4{margin:14px 0;border:1px solid var(--border);border-radius:10px;background:var(--accordion-bg);overflow:hidden;transition:all .2s}
+details.c4[open]{background:var(--accordion-open-bg);border-color:var(--text4);box-shadow:var(--shadow2)}
+details.c4 summary{padding:14px 18px;font-size:13px;font-weight:600;color:var(--text3);cursor:pointer;list-style:none;display:flex;align-items:center;gap:8px;user-select:none;letter-spacing:.3px}
+details.c4 summary::-webkit-details-marker{display:none}
+details.c4 summary::before{content:'▸';font-size:11px;color:var(--text4);transition:transform .2s;flex-shrink:0}
+details.c4[open] summary::before{transform:rotate(90deg);color:var(--accent)}
+details.c4[open] summary{color:var(--text);border-bottom:1px solid var(--border2)}
+details.c4 .c4-body{padding:16px 18px}
+details.c4 .c4-body p{font-size:13px;color:var(--text2);margin-bottom:10px;line-height:1.85}
+details.c4 .c4-body p:last-child{margin-bottom:0}
+.flash{border:1px solid var(--border);background:var(--bg2);border-radius:10px;padding:16px 18px;margin:18px 0}
+.flash-hdr{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text4);margin-bottom:8px;font-weight:600}
+.flash-k1{font-size:14px;color:var(--text);margin-bottom:12px;line-height:1.75}
+.flash-l{font-family:'DM Mono',monospace;font-size:11.5px;color:var(--text2);background:var(--blockquote-bg);border-left:3px solid var(--blockquote-border);padding:10px 14px;margin-bottom:12px;border-radius:0 6px 6px 0;line-height:1.85}
+.flash-m{font-size:12.5px;color:var(--text2);padding:8px 12px;background:var(--amber-bg);border:1px solid var(--amber-border);border-radius:6px;line-height:1.75}
+</style>
+</head>
+<body>
+<div class="mx">
+<div class="theme-toggle" onclick="toggleTheme()"><span id="themeIcon">☀️</span><span id="themeLabel">CLARO</span></div>
+
+<div class="hdr">
+  <h1>Caderno de TGNR</h1>
+  <h2>D1 · Bloco 1 · Desjudicialização + Usucapião Extrajudicial</h2>
+  <div class="sub">MAKERZ · Cartórios 6.0 → ENAC Focus</div>
+  <div class="shield">🛡️</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+
+<!-- TC 0000002115 — conceito e fundamentos da desjudicialização     -->
+
+<!-- modo: flashcard (cat baixa)                                      -->
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+
+<section data-hash="0000002115" data-tipo="topico">
+<h3>Conceito e fundamentos da desjudicialização <span class="tag tag-baixa">baixa · flashcard</span></h3>
+
+<div class="flash">
+  <div class="flash-hdr">⚡ Flashcard</div>
+
+  <div data-hash="9999010001" data-elem="k1">
+    <span class="elem-tag">k1</span>
+    <span class="flash-k1">A desjudicialização é o movimento legislativo brasileiro que transfere para os serviços notariais e de registro atribuições antes exclusivas do Judiciário, em hipóteses em que não há litígio real entre as partes — combinando celeridade, segurança jurídica e desafogamento dos juízos sem prejudicar o acesso à justiça (CF art. 5º, XXXV).</span>
+  </div>
+
+  <div data-hash="9999010002" data-elem="l2">
+    <span class="elem-tag">l2</span> <strong>Marco normativo inaugural:</strong>
+    <div class="flash-l">
+      <strong>Lei nº 11.441/2007</strong> — alterou o CPC/1973 (depois mantida pelo CPC/2015) para permitir <em>inventário, partilha, separação consensual e divórcio consensual</em> por escritura pública, dispensada a homologação judicial, quando todos os interessados são maiores e capazes, sem nascituros, e quando houver consenso. Marca o início da política contemporânea de desjudicialização extrajudicial no Brasil.
+    </div>
+  </div>
+
+  <div data-hash="9999010003" data-elem="m2" data-m-tipo="alerta_banca" class="flash-m">
+    <strong>⚠️ Alerta de prova:</strong> a desjudicialização <strong>amplia</strong> o acesso à justiça em sentido amplo (acesso ao resultado justo em tempo razoável), sem violar o art. 5º, XXXV da CF — porque a via judicial permanece à escolha do interessado. Banca FGV pode tentar inverter: "a desjudicialização viola o princípio da inafastabilidade do controle jurisdicional". <strong>É falso.</strong>
+  </div>
+</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+
+<!-- TC 0000002116 — usucapião extrajudicial (art. 216-A LRP)        -->
+
+<!-- modo: denso (cat altíssima)                                      -->
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+
+<section data-hash="0000002116" data-tipo="topico">
+<h3>Usucapião extrajudicial (art. 216-A LRP) <span class="tag tag-altissima">altíssima · denso</span></h3>
+
+<!-- k1 (1) — instituto e natureza -->
+
+<div data-hash="9999010101" data-elem="k1">
+<span class="elem-tag">k1</span>
+<p>A <strong>usucapião extrajudicial</strong> é o procedimento administrativo registral que reconhece a aquisição da propriedade pela <em>prescrição aquisitiva</em> (posse prolongada com animus domini) sem a necessidade de ação judicial. Foi criada pelo art. 1.071 do CPC/2015, que inseriu o <strong>art. 216-A na Lei de Registros Públicos</strong>, e tem como autoridade processante o <strong>oficial do Registro de Imóveis</strong> da circunscrição em que se situa o imóvel. O fundamento substancial é o mesmo da usucapião judicial — arts. 1.238 a 1.244 do Código Civil; o que muda é o <strong>rito e a autoridade decisória</strong>.</p>
+<p>É expressão paradigmática da política de desjudicialização: o legislador entendeu que, quando a aquisição da propriedade pela posse não envolve litígio real (porque o titular registral concorda, ou está ausente, ou simplesmente não há quem se oponha materialmente), não há razão constitucional para impor jurisdição contenciosa. O oficial assume função decisória, examina documentação, faz notificações e, ao final, registra ou rejeita o pedido.</p>
+</div>
+
+<!-- k1 (2) — convivência das vias -->
+
+<div data-hash="9999010102" data-elem="k1">
+<span class="elem-tag">k1</span>
+<p>A usucapião extrajudicial <strong>não substitui</strong> a judicial — convive com ela. O caput do art. 216-A é explícito: "sem prejuízo da via jurisdicional". O interessado escolhe livremente, e pode até <strong>desistir da via judicial em curso para promover a extrajudicial</strong>, ou suspender o extrajudicial por 30 dias para tentar acordo. A rejeição do pedido extrajudicial pelo oficial <strong>não faz coisa julgada</strong> — o interessado pode ajuizar ação judicial mesmo após a recusa registral (art. 216-A § 9º LRP). Da mesma forma, a impugnação justificada que inviabiliza a extrajudicial não impede a propositura da ação judicial.</p>
+</div>
+
+<!-- k2 — Espécies de usucapião e via extrajudicial -->
+
+<div data-hash="9999010103" data-elem="k2">
+<span class="elem-tag">k2</span>
+<h4>Espécies de usucapião e a via extrajudicial</h4>
+<p>Não existe uma "usucapião extrajudicial" como espécie autônoma. O que existe é a <strong>possibilidade de processamento extrajudicial</strong> das diferentes espécies materiais previstas no CC e em legislação especial. Qualquer modalidade pode, em tese, ser processada pela via registral, desde que atendidos os requisitos próprios da espécie e os documentais do art. 216-A.</p>
+
+<table>
+<thead><tr><th>Espécie</th><th>Tempo</th><th>Requisitos especiais</th><th>Fonte</th></tr></thead>
+<tbody>
+<tr><td><strong>Ordinária</strong></td><td>10 anos</td><td>Justo título + boa-fé</td><td>CC art. 1.242</td></tr>
+<tr><td><strong>Extraordinária</strong></td><td>15 anos (10 com função social)</td><td>Independe de justo título ou boa-fé</td><td>CC art. 1.238</td></tr>
+<tr><td><strong>Especial urbana (pro misero)</strong></td><td>5 anos</td><td>Imóvel ≤ 250m², moradia, sem outro imóvel</td><td>CF 183 + CC 1.240</td></tr>
+<tr><td><strong>Especial rural (pro labore)</strong></td><td>5 anos</td><td>Imóvel ≤ 50ha, moradia + produtividade</td><td>CF 191 + CC 1.239</td></tr>
+<tr><td><strong>Familiar (abandono do lar)</strong></td><td>2 anos</td><td>Imóvel ≤ 250m², ex-cônjuge abandonou</td><td>CC art. 1.240-A</td></tr>
+<tr><td><strong>Coletiva</strong></td><td>5 anos</td><td>Área urbana &gt; 250m², ocupação por mais de uma família baixa renda</td><td>Lei 10.257 (Estatuto da Cidade) art. 10</td></tr>
+<tr><td><strong>Indígena</strong></td><td>10 anos</td><td>Posse mansa, área ≤ 50ha, indígena integrado</td><td>Lei 6.001/73 art. 33</td></tr>
+</tbody>
+</table>
+
+<p>A espécie escolhida influencia diretamente a documentação probatória apresentada na ata notarial. Ordinária exige justo título e boa-fé — ambos precisam ser demonstrados. Extraordinária dispensa esses requisitos, mas exige tempo maior, sustentado por prova testemunhal robusta colhida na ata.</p>
+</div>
+
+<!-- k2 — Documentação obrigatória -->
+
+<div data-hash="9999010104" data-elem="k2">
+<span class="elem-tag">k2</span>
+<h4>Documentação obrigatória — quatro peças do art. 216-A § 1º</h4>
+<p>A lei exige quatro documentos como instrução do pedido, cada um cumprindo uma função probatória específica:</p>
+
+<table>
+<thead><tr><th>Inciso</th><th>Documento</th><th>O que prova</th></tr></thead>
+<tbody>
+<tr><td>I</td><td><strong>Ata notarial</strong> lavrada por tabelião de notas</td><td>Tempo e natureza da posse — declarações testemunhais formalizadas com fé pública. Pode incluir imagens, documentos, áudios; não pode se basear apenas em declarações do requerente (CNN art. 402)</td></tr>
+<tr><td>II</td><td><strong>Planta + memorial descritivo</strong> com ART/RRT</td><td>Identificação física do imóvel. Deve ser assinada pelos <em>titulares de direitos reais e outros direitos registrados</em> na matrícula do imóvel e nas dos confinantes — assinatura vale como anuência prévia (dispensa notificação posterior)</td></tr>
+<tr><td>III</td><td><strong>Certidões negativas dos distribuidores</strong> (comarca do imóvel + domicílio do requerente)</td><td>Inexistência de ação judicial pendente sobre o imóvel ou contra o requerente envolvendo aquela posse</td></tr>
+<tr><td>IV</td><td><strong>Justo título</strong> ou outros documentos demonstrativos</td><td>Origem, continuidade, natureza e tempo da posse — IPTU, contas de consumo, contratos informais, recibos, fotografias</td></tr>
+</tbody>
+</table>
+
+<details class="c4" data-hash="9999010105" data-elem="k3">
+  <summary><span class="elem-tag">k3</span><span class="selo">💭</span> Dispensa de planta e memorial — unidade autônoma de condomínio edilício</summary>
+  <div class="c4-body">
+    <p>O art. 216-A § 5º (incluído pela Lei 13.465/17 — Lei da REURB) dispensa a apresentação de planta e memorial descritivo quando o imóvel usucapiendo é <strong>unidade autônoma de condomínio edilício regularmente constituído</strong> ou lote de loteamento regularmente instituído. Basta que o requerimento faça menção à descrição constante da matrícula.</p>
+    <p>Para unidade autônoma de condomínio edilício <strong>com construção averbada</strong>, basta a anuência do síndico (art. 216-A § 11). Se o síndico não anuiu de início, é notificado para se manifestar em 15 dias; silêncio = anuência.</p>
+  </div>
+</details>
+
+<details class="c4" data-hash="9999010106" data-elem="k3">
+  <summary><span class="elem-tag">k3</span><span class="selo">💭</span> Competência territorial da ata notarial</summary>
+  <div class="c4-body">
+    <p>A ata notarial deve ser lavrada pelo <strong>tabelião de notas do município em que está o imóvel usucapiendo</strong> (CNN art. 402; Prov. 65/2017 art. 5º). Se o imóvel estiver localizado em mais de um município, escolhe-se o município onde está a <em>maior parte</em> do imóvel.</p>
+    <p>Cuidado com a pegadinha: é o tabelião do município <strong>do imóvel</strong>, não do domicílio do requerente. Banca confunde os dois.</p>
+  </div>
+</details>
+</div>
+
+<!-- k2 — Procedimento registral -->
+
+<div data-hash="9999010107" data-elem="k2">
+<span class="elem-tag">k2</span>
+<h4>Procedimento registral — passo a passo</h4>
+<p>Apresentado o pedido com a documentação completa, o oficial autua e prenota o procedimento, garantindo a <strong>prioridade registral</strong> a partir desse momento. A partir daí, o iter administrativo segue uma sequência bem definida:</p>
+
+<table>
+<thead><tr><th>#</th><th>Etapa</th><th>Conteúdo</th></tr></thead>
+<tbody>
+<tr><td>1</td><td><strong>Qualificação registral</strong></td><td>Exame formal da documentação — se houver vícios sanáveis, nota de exigência</td></tr>
+<tr><td>2</td><td><strong>Notificação dos confrontantes e titulares de direitos</strong></td><td>Pessoal — quem não assinou a planta. Carta com AR + cópia integral do pedido. Silêncio em 15 dias = anuência</td></tr>
+<tr><td>3</td><td><strong>Notificação dos entes públicos</strong></td><td>União, Estado, Município — por carta/ofício. Prazo de 15 dias para manifestação. Silêncio = anuência (Lei 14.382/22)</td></tr>
+<tr><td>4</td><td><strong>Edital</strong></td><td>Para terceiros incertos. Admitido em <strong>meio eletrônico</strong> (Lei 14.620/23), regulamentação pelo TJ local</td></tr>
+<tr><td>5</td><td><strong>Análise das manifestações</strong></td><td>Sem impugnação → registro. Impugnação justificada que persiste → autos ao requerente. Impugnação injustificada → inadmissão pelo oficial; interessado pode suscitar dúvida (art. 198 LRP)</td></tr>
+<tr><td>6</td><td><strong>Registro da aquisição</strong></td><td>Aquisição originária — sem ITBI (CNN art. 421). Gravames anteriores não cancelados automaticamente (CNN art. 418)</td></tr>
+</tbody>
+</table>
+</div>
+
+<!-- k2 — Impugnação (Lei 14.382/22) -->
+
+<div data-hash="9999010108" data-elem="k2">
+<span class="elem-tag">k2</span>
+<h4>Impugnação e a virada da Lei 14.382/22</h4>
+<p>Esse é o ponto que <strong>mais cai em prova FGV</strong> nos últimos ciclos. Na redação original do CPC/2015, qualquer impugnação fazia o oficial remeter automaticamente os autos ao juízo competente — o que esvaziava o instituto, porque um confrontante de má-fé bastava para derrubar o extrajudicial.</p>
+<p>A Lei 14.382/22 redesenhou o § 10 do art. 216-A, criando um <strong>filtro registral</strong>: o oficial passa a analisar o conteúdo da impugnação antes de decidir o que fazer com ela.</p>
+
+<table>
+<thead><tr><th>Tipo de impugnação</th><th>O que é</th><th>O que o oficial faz</th></tr></thead>
+<tbody>
+<tr><td><strong>Justificada</strong></td><td>Tem fundamento jurídico real — razão idônea sobre posse, tempo, área, propriedade</td><td>Tenta conciliação/mediação; <em>se persiste</em>, lavra relatório circunstanciado e entrega os autos ao requerente, que pode ajuizar ação judicial</td></tr>
+<tr><td><strong>Manifestamente improcedente</strong></td><td>Sem fundamento real — genérica, protelatória, ou matéria estranha ao mérito</td><td><strong>Inadmite</strong> por nota fundamentada e <strong>prossegue</strong> o procedimento. Contra a inadmissão, o impugnante pode <strong>suscitar dúvida</strong> nos termos do art. 198 LRP</td></tr>
+</tbody>
+</table>
+</div>
+
+<!-- l (1) — art. 216-A caput -->
+
+<div data-hash="9999010201" data-elem="l2">
+<span class="elem-tag">l2</span>
+<blockquote>
+<p><strong>Lei 6.015/73 (LRP), art. 216-A, caput</strong> (redação dada pela Lei 14.382/2022):</p>
+<p>"Sem prejuízo da via jurisdicional, é admitido o pedido de reconhecimento extrajudicial de usucapião, que será processado diretamente perante o cartório do registro de imóveis da comarca em que estiver situado o imóvel usucapiendo, a requerimento do interessado, representado por advogado, instruído com: I — ata notarial lavrada pelo tabelião, atestando o tempo de posse do requerente e seus antecessores, conforme o caso e suas circunstâncias, aplicando-se o disposto no art. 384 da Lei nº 13.105, de 16 de março de 2015 (Código de Processo Civil); II — planta e memorial descritivo assinado por profissional legalmente habilitado, com prova de anotação de responsabilidade técnica no respectivo conselho de fiscalização profissional, e pelos titulares de direitos registrados ou averbados na matrícula do imóvel usucapiendo e na matrícula dos imóveis confinantes; III — certidões negativas dos distribuidores da comarca da situação do imóvel e do domicílio do requerente; IV — justo título ou quaisquer outros documentos que demonstrem a origem, a continuidade, a natureza e o tempo da posse, tais como o pagamento dos impostos e das taxas que incidirem sobre o imóvel."</p>
+</blockquote>
+</div>
+
+<!-- l (2) — art. 216-A § 2º (silêncio = anuência) -->
+
+<div data-hash="9999010202" data-elem="l2">
+<span class="elem-tag">l2</span>
+<blockquote>
+<p><strong>Lei 6.015/73 (LRP), art. 216-A, § 2º</strong> (redação dada pela Lei 14.382/2022):</p>
+<p>"Se a planta não contiver a assinatura de qualquer um dos titulares de direitos reais e de outros direitos registrados ou averbados na matrícula do imóvel usucapiendo e na matrícula dos imóveis confinantes, esse será notificado pelo registrador competente, pessoalmente ou pelo correio com aviso de recebimento, para manifestar seu consentimento expresso em 15 (quinze) dias, <strong>interpretado o seu silêncio como concordância</strong>."</p>
+</blockquote>
+</div>
+
+<!-- l (3) — art. 216-A § 10 (impugnação) -->
+
+<div data-hash="9999010203" data-elem="l2">
+<span class="elem-tag">l2</span>
+<blockquote>
+<p><strong>Lei 6.015/73 (LRP), art. 216-A, § 10</strong> (redação dada pela Lei 14.382/2022):</p>
+<p>"Em caso de impugnação do pedido de reconhecimento extrajudicial de usucapião apresentada por qualquer dos titulares de direito reais e de outros direitos registrados ou averbados na matrícula do imóvel usucapiendo e na matrícula dos imóveis confinantes, por algum dos entes públicos ou por algum terceiro interessado, o oficial de registro de imóveis tentará promover a conciliação ou a mediação entre as partes interessadas. Sendo infrutífera a conciliação ou mediação, persistindo a impugnação, o oficial de registro de imóveis lavrará relatório circunstanciado de todo o processamento da usucapião, e o entregará ao requerente, acompanhado dos autos. A impugnação manifestamente improcedente será inadmitida pelo registrador, cabendo ao interessado suscitar dúvida, na forma do art. 198 desta Lei."</p>
+</blockquote>
+</div>
+
+<!-- l (4) — CNN art. 421 (sem ITBI) -->
+
+<div data-hash="9999010204" data-elem="l2">
+<span class="elem-tag">l2</span>
+<blockquote>
+<p><strong>CNN/CN/CNJ-Extra (Prov. 149/2023), art. 421</strong>:</p>
+<p>"O oficial de registro de imóveis não exigirá, para o ato de registro da usucapião, o pagamento do Imposto sobre a Transmissão de Bens Imóveis — ITBI, pois trata-se de aquisição originária de domínio."</p>
+</blockquote>
+</div>
+
+<!-- j (1) — STJ -->
+
+<div data-hash="9999010301" data-elem="j2" class="card card-blue">
+<div class="card-label card-label-blue">📚 JURISPRUDÊNCIA</div>
+<p><strong>STJ — REsp 1.997.948/MS (3ª Turma, 2022)</strong>:</p>
+<p>"<em>A criação do procedimento de usucapião extrajudicial pelo art. 216-A da Lei de Registros Públicos não excluiu a via jurisdicional. As duas vias coexistem, sendo facultado ao interessado optar livremente, podendo inclusive desistir da via judicial para promover a extrajudicial, conforme previsto no Provimento 65/2017 do CNJ.</em>"</p>
+<p><em>Impacto:</em> pacificou o caráter facultativo da via extrajudicial. Pegadinha de prova: "após 2015 só cabe usucapião extrajudicial" — falso.</p>
+</div>
+
+<!-- j (2) — CSM/SP -->
+
+<div data-hash="9999010302" data-elem="j2" class="card card-blue">
+<div class="card-label card-label-blue">📚 JURISPRUDÊNCIA</div>
+<p><strong>CSM/SP — Apelação Cível 1077069-17.2022 (1ª Vara de Registros Públicos de SP)</strong>:</p>
+<p>Reconheceu o cabimento de <strong>usucapião familiar (CC art. 1.240-A) pela via extrajudicial</strong>, desde que demonstrado o abandono do lar pelo ex-cônjuge na ata notarial. Afastou o entendimento de que a espécie exigiria via judicial em razão da peculiaridade da prova do abandono.</p>
+<p><em>Impacto:</em> reforça que qualquer espécie do CC ou legislação especial cabe extrajudicialmente, mesmo as que dependem de circunstâncias factuais delicadas.</p>
+</div>
+
+<!-- d (1) — Brandelli -->
+
+<div data-hash="9999010401" data-elem="d2" class="card card-amber">
+<div class="card-label card-label-amber">📖 DOUTRINA</div>
+<p><strong>Leonardo Brandelli</strong> — <em>Usucapião Administrativa</em> (Saraiva, 2016) — posição <strong>majoritária</strong>:</p>
+<p>Sustenta a natureza administrativa-registral do procedimento, em que o oficial atua como <em>autoridade processante de direito público</em>, com função decisória de jurisdição voluntária. A qualificação registral aqui é mais ampla que a comum: examina não apenas formalidades mas também o mérito (existência da posse e seu tempo, atendimento dos requisitos da espécie). É qualificação registral <em>especial</em>.</p>
+</div>
+
+<!-- d (2) — Lamana Paiva -->
+
+<div data-hash="9999010402" data-elem="d2" class="card card-amber">
+<div class="card-label card-label-amber">📖 DOUTRINA</div>
+<p><strong>João Pedro Lamana Paiva</strong> — <em>Novas Perspectivas de Atos Notariais</em> (2015) — posição <strong>majoritária</strong>:</p>
+<p>Defende que a ata notarial de usucapião tem dupla natureza probatória: serve como meio de prova qualificada (art. 384 CPC) e como peça instrutória obrigatória do procedimento registral (art. 216-A, I LRP). O tabelião não declara propriedade — atesta circunstâncias fáticas sobre a posse, que o registrador depois valorará.</p>
+</div>
+
+<!-- i (1) — Gaius -->
+
+<div data-hash="9999010501" data-elem="i2" class="card card-purple">
+<div class="card-label card-label-purple">🤖 GAIUS</div>
+<p>A engenharia do art. 216-A é a <strong>matriz</strong> de quase todos os procedimentos extrajudiciais que vão aparecer no caderno. O modelo é: oficial como autoridade processante; documentação típica (ata notarial + planta + certidões); notificações com silêncio = anuência; impugnação real desloca para o judicial; impugnação falsa é filtrada pelo oficial. Quem domina a usucapião extrajudicial entende a adjudicação compulsória extrajudicial (art. 216-B), a REURB (Lei 13.465/17), e várias outras figuras que seguem a mesma engenharia. <em>(Gaius destaca a importância sistêmica.)</em></p>
+</div>
+
+<!-- i (2) — Gaius -->
+
+<div data-hash="9999010502" data-elem="i2" class="card card-purple">
+<div class="card-label card-label-purple">🤖 GAIUS</div>
+<p>A virada da Lei 14.382/22 — separar impugnação justificada de manifestamente improcedente — é o ponto que <strong>mais sai em prova FGV nos últimos ciclos</strong>. Antes da reforma, qualquer "discordância" derrubava o extrajudicial. Hoje, o oficial filtra. Se o impugnante apresenta razão real (alega ser dono, alega que o tempo não bate, alega área diferente) → justificada → segue pra judicial. Se ele só "discorda" sem dizer por quê, ou levanta matéria estranha (briga familiar antiga, desavença pessoal) → injustificada → registrador inadmite. <em>(Gaius alerta: decora essa tabela; é cobrada em texto literal pela banca.)</em></p>
+</div>
+
+<!-- i (3) — Gaius -->
+
+<div data-hash="9999010503" data-elem="i2" class="card card-purple">
+<div class="card-label card-label-purple">🤖 GAIUS</div>
+<p>Repare que <strong>aquisição originária ≠ matrícula limpa</strong>. A usucapião gera aquisição originária — o adquirente recebe a propriedade direto do fato jurídico, não de outro titular — e por isso não há ITBI (CNN art. 421). Mas isso <em>não significa</em> que a matrícula fica limpa: hipotecas, penhoras, restrições anteriores continuam registradas até que o interessado peça o cancelamento à autoridade que as criou (juízo da execução, credor hipotecário, Município). Banca adora dizer "aquisição originária cancela tudo automaticamente" — <strong>é falso</strong>. <em>(Gaius esclarece a confusão recorrente.)</em></p>
+</div>
+
+<!-- m — marcadores (4✅ + 4❌) -->
+
+<details class="c4" data-hash="9999010601" data-elem="m2" data-m-tipo="afirmacao">
+  <summary><span class="elem-tag">m2</span><span class="selo">✅</span> A usucapião extrajudicial e a judicial são vias concorrentes — o interessado pode optar livremente</summary>
+  <div class="c4-body">
+    <p>Verdadeiro. Art. 216-A caput LRP: "<em>sem prejuízo da via jurisdicional</em>". As duas convivem; a rejeição ou impugnação na extrajudicial não impede a propositura judicial (§ 9º). O Provimento 65/2017 CNJ permite até pedido de suspensão da extrajudicial por 30 dias ou desistência da judicial para migrar pra extrajudicial.</p>
+  </div>
+</details>
+
+<details class="c4" data-hash="9999010602" data-elem="m2" data-m-tipo="afirmacao">
+  <summary><span class="elem-tag">m2</span><span class="selo">✅</span> O silêncio do notificado em 15 dias presume-se anuência, inclusive para entes públicos</summary>
+  <div class="c4-body">
+    <p>Verdadeiro após a Lei 14.382/22 (art. 216-A § 2º). Antes era o contrário — silêncio era oposição. A inversão alcançou todos os notificados: confrontantes, titulares de direitos reais, União, Estado e Município. <strong>Pegadinha clássica:</strong> banca tenta sustentar que para entes públicos o silêncio ainda equivale a discordância. É falso.</p>
+  </div>
+</details>
+
+<details class="c4" data-hash="9999010603" data-elem="m2" data-m-tipo="afirmacao">
+  <summary><span class="elem-tag">m2</span><span class="selo">✅</span> A ata notarial deve ser lavrada pelo tabelião do município do imóvel</summary>
+  <div class="c4-body">
+    <p>Verdadeiro. CNN art. 402 e Prov. 65/2017 art. 5º: a ata notarial é lavrada pelo tabelião de notas do município em que está o imóvel usucapiendo (ou, se em mais de um, daquele onde está a maior parte). Não é o tabelião do domicílio do requerente. O tabelião pode comparecer pessoalmente ao imóvel para diligências.</p>
+  </div>
+</details>
+
+<details class="c4" data-hash="9999010604" data-elem="m2" data-m-tipo="afirmacao">
+  <summary><span class="elem-tag">m2</span><span class="selo">✅</span> Impugnação manifestamente improcedente é inadmitida pelo oficial; cabe dúvida do art. 198 LRP contra essa decisão</summary>
+  <div class="c4-body">
+    <p>Verdadeiro após Lei 14.382/22 (art. 216-A § 10). O oficial filtra a impugnação: a injustificada é inadmitida por nota fundamentada, e o procedimento extrajudicial prossegue. O impugnante inconformado pode suscitar dúvida nos moldes do art. 198 — caso clássico de dúvida inversa com previsão legal expressa.</p>
+  </div>
+</details>
+
+<details class="c4" data-hash="9999010605" data-elem="m2" data-m-tipo="pegadinha">
+  <summary><span class="elem-tag">m2</span><span class="selo">❌</span> A usucapião extrajudicial dispensa a representação por advogado, dada sua natureza administrativa</summary>
+  <div class="c4-body">
+    <p>Falso. Art. 216-A caput é expresso: "<em>a requerimento do interessado, representado por advogado</em>". A capacidade postulatória é obrigatória mesmo na via extrajudicial. Defensor público também pode atuar (Prov. 65/2017 art. 2º). Pegadinha clássica que tenta usar a natureza administrativa para sugerir dispensa do advogado.</p>
+  </div>
+</details>
+
+<details class="c4" data-hash="9999010606" data-elem="m2" data-m-tipo="pegadinha">
+  <summary><span class="elem-tag">m2</span><span class="selo">❌</span> A aquisição originária pela usucapião cancela automaticamente todos os gravames anteriores da matrícula</summary>
+  <div class="c4-body">
+    <p>Falso. A aquisição originária dispensa o ITBI (CNN art. 421), mas <strong>gravames anteriores continuam registrados</strong> (CNN art. 418). Hipotecas, penhoras, restrições administrativas só são canceladas mediante pedido específico à autoridade que os criou. A "limpeza" da matrícula não é automática.</p>
+  </div>
+</details>
+
+<details class="c4" data-hash="9999010607" data-elem="m2" data-m-tipo="pegadinha">
+  <summary><span class="elem-tag">m2</span><span class="selo">❌</span> Toda impugnação obriga o oficial a remeter os autos ao juízo competente, que então decide</summary>
+  <div class="c4-body">
+    <p>Falso. Essa era a regra <strong>antes da Lei 14.382/22</strong>. Hoje o oficial filtra: impugnação justificada → entrega autos ao requerente (que pode ajuizar); impugnação manifestamente improcedente → inadmite e prossegue extrajudicialmente. Banca pode tentar a redação antiga como pegadinha — fique atento à data da prova e à redação atual.</p>
+  </div>
+</details>
+
+<details class="c4" data-hash="9999010608" data-elem="m2" data-m-tipo="pegadinha">
+  <summary><span class="elem-tag">m2</span><span class="selo">❌</span> Apenas a usucapião ordinária pode ser processada pela via extrajudicial; modalidades especiais (urbana, rural, familiar) exigem ação judicial</summary>
+  <div class="c4-body">
+    <p>Falso. Qualquer espécie de usucapião do Código Civil ou de legislação especial pode ser processada extrajudicialmente. O Provimento 65/2017 do CNJ (art. 2º § 1º) é expresso: "<em>o procedimento poderá abranger a propriedade e demais direitos reais passíveis da usucapião</em>". O CSM/SP já admitiu inclusive usucapião familiar (CC 1.240-A) por essa via.</p>
+  </div>
+</details>
+
+</section>
+
+<div style="margin-top:60px;padding-top:24px;border-top:1px solid var(--border);text-align:center">
+  <p style="font-size:11px;color:var(--text4);letter-spacing:1px">MAKERZ · Caderno de TGNR · D1 · Bloco 1</p>
+  <p style="font-size:10px;color:var(--text4);margin-top:6px">Próximo bloco: Adjudicação compulsória extrajudicial (art. 216-B LRP)</p>
+</div>
+
+</div>
+
+<script>
+function toggleTheme(){const b=document.body,d=b.getAttribute('data-theme')==='dark';b.setAttribute('data-theme',d?'':'dark');document.getElementById('themeIcon').textContent=d?'☀️':'🌙';document.getElementById('themeLabel').textContent=d?'CLARO':'ESCURO';localStorage.setItem('makerz-theme',d?'light':'dark')}const s=localStorage.getItem('makerz-theme');if(s==='dark'){document.body.setAttribute('data-theme','dark');document.getElementById('themeIcon').textContent='🌙';document.getElementById('themeLabel').textContent='ESCURO'}
+</script>
+
+<script type="application/json" id="makerz-manifest">
+{
+  "bloco": "sumario-tgnr-bloco1-d1",
+  "produto": "caderno",
+  "modo": "padrao",
+  "dia": 1,
+  "materia": "TGNR",
+  "topicos": [
+    {
+      "tc": "0000002115",
+      "modo_densidade": "flashcard",
+      "cat": "baixa",
+      "objetos": [
+        {"hash": "9999010001", "natureza": "k1"},
+        {"hash": "9999010002", "natureza": "l2"},
+        {"hash": "9999010003", "natureza": "m2", "m_tipo": "alerta_banca"}
+      ]
+    },
+    {
+      "tc": "0000002116",
+      "modo_densidade": "denso",
+      "cat": "altissima",
+      "objetos": [
+        {"hash": "9999010101", "natureza": "k1"},
+        {"hash": "9999010102", "natureza": "k1"},
+        {"hash": "9999010103", "natureza": "k2"},
+        {"hash": "9999010104", "natureza": "k2"},
+        {"hash": "9999010105", "natureza": "k3"},
+        {"hash": "9999010106", "natureza": "k3"},
+        {"hash": "9999010107", "natureza": "k2"},
+        {"hash": "9999010108", "natureza": "k2"},
+        {"hash": "9999010201", "natureza": "l2"},
+        {"hash": "9999010202", "natureza": "l2"},
+        {"hash": "9999010203", "natureza": "l2"},
+        {"hash": "9999010204", "natureza": "l2"},
+        {"hash": "9999010301", "natureza": "j2"},
+        {"hash": "9999010302", "natureza": "j2"},
+        {"hash": "9999010401", "natureza": "d2"},
+        {"hash": "9999010402", "natureza": "d2"},
+        {"hash": "9999010501", "natureza": "i2"},
+        {"hash": "9999010502", "natureza": "i2"},
+        {"hash": "9999010503", "natureza": "i2"},
+        {"hash": "9999010601", "natureza": "m2", "m_tipo": "afirmacao"},
+        {"hash": "9999010602", "natureza": "m2", "m_tipo": "afirmacao"},
+        {"hash": "9999010603", "natureza": "m2", "m_tipo": "afirmacao"},
+        {"hash": "9999010604", "natureza": "m2", "m_tipo": "afirmacao"},
+        {"hash": "9999010605", "natureza": "m2", "m_tipo": "pegadinha"},
+        {"hash": "9999010606", "natureza": "m2", "m_tipo": "pegadinha"},
+        {"hash": "9999010607", "natureza": "m2", "m_tipo": "pegadinha"},
+        {"hash": "9999010608", "natureza": "m2", "m_tipo": "pegadinha"}
+      ]
+    }
+  ],
+  "gates_atingidos": {
+    "tc_0000002116_altissima": {
+      "k1": 2, "k2": 4, "k3": 2, "l": 4, "j": 2, "d": 2, "i": 3, "m": "4✅+4❌"
+    }
+  }
+}
+</script>
+
+</body>
+</html>
